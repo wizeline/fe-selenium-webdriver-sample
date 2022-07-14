@@ -1,5 +1,5 @@
-# Fashionette challenge
-This is the Fasionette challenge project by Rubén Nogueroles (rubennogueroles@gmail.com).
+# Selenium -webdriver project
+
 
 ## Prerequisites
 1. [Maven](https://maven.apache.org/download.cgi) [Install manual](https://maven.apache.org/install.html )
