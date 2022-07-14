@@ -33,7 +33,7 @@
 		<testng.version>6.14.2</testng.version>
 		<commons.lang3.version>3.12.0</commons.lang3.version>
 		<log4j.version>1.2.17</log4j.version>
-		<commons-io.version>2.4</commons-io.version>
+		<commons-io.version>2.7</commons-io.version>
 		<aspectj.version>1.9.9.1</aspectj.version>
 		
 		<!-- Default parameters for selenium -->
