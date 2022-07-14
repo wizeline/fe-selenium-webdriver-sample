@@ -3,7 +3,8 @@ package com.wizeline.selenium.testSets;
 import java.io.File;
 import java.lang.reflect.Method;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -29,8 +30,8 @@ public class DefaultTestSet {
     //PageObjetc instances
     protected LandingPage landingPage;
     protected ResultsPage resultsPage;
-
-    protected static Logger log = Logger.getLogger(DefaultTestSet.class);
+    
+    private static Logger log = LogManager.getLogger(DefaultTestSet.class);
 
     @BeforeClass(description = "beforeClassMethod")
     public void beforeClass() {

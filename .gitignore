@@ -1,5 +1,6 @@
 /target/
 */target/**
+files/
 /test-output/
 */test-output/**
 .DS_Store

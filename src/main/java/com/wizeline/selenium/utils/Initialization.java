@@ -7,8 +7,8 @@ import java.util.Map;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.log4j.Logger;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
@@ -16,7 +16,6 @@ import org.openqa.selenium.firefox.FirefoxProfile;
 import com.wizeline.selenium.drivers.BaseWebDriver;
 import com.wizeline.selenium.drivers.CustomChromeDriver;
 import com.wizeline.selenium.drivers.CustomFirefoxDriver;
-
 
 public class Initialization {
 
@@ -33,7 +32,8 @@ public class Initialization {
     private int heightBeforeMaximize;
     private int heightAfterMaximize;
     private static Initialization instance = null;
-    private static Logger log = Logger.getLogger(Initialization.class);
+    
+    private static Logger log = LogManager.getLogger(Initialization.class);
 
     BaseWebDriver driver;
 
@@ -63,7 +63,7 @@ public class Initialization {
 
         properties = "test.properties";
         Properties prop = new Properties();
-        log = Logger.getLogger(this.getClass());
+        //log = Logger.getLogger(this.getClass());
 
         try {
             ClassLoader loader = Thread.currentThread().getContextClassLoader();
@@ -243,7 +243,7 @@ public class Initialization {
             try {
                 FileUtils.cleanDirectory(f);
             } catch (IOException e) {
-                log.error(e.getStackTrace());
+                log.error(e.getStackTrace().toString());
             }
         }
     }
