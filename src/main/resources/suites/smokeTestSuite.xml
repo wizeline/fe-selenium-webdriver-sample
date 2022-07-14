@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This test suite contains a list of tests -->
+<suite name="SmokeTestSuite" enabled="true" configfailurepolicy="continue">
+	<test name="SmokeTests" order-by-instances="true">
+		<classes>
+			<class name="com.wizeline.selenium.testSets.DemoTestSet" >
+				<methods>
+                    <include name="searchTest" />
+                </methods>
+            </class>
+		</classes>
+	</test>
+</suite>

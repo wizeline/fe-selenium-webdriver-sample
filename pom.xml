@@ -1,0 +1,122 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.wizeline</groupId>
+  <artifactId>selenium-simple</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Selenium 4 WebDriver</name>
+  
+  <developers>
+    <developer>
+      <name>Ruben Nogueroles</name>
+      <email>ruben.nogueroles@wizeline.com</email>
+      <organization>Wizeline</organization>
+      <timezone>Europe/Madrid</timezone>     
+    </developer>
+  </developers>
+
+<properties>
+			
+		<!-- Parameters for test executions -->
+		<!-- browser options "Chrome" or "Firefox" -->
+		<browser>Chrome</browser>
+		<local.OS>MacOs</local.OS>
+		<webdriver.chrome.driver>src/main/resources/files/software/chromedriver.exe</webdriver.chrome.driver>
+		<webdriver.firefox.driver>src/main/resources/files/software/geckodriver.exe</webdriver.firefox.driver>
+
+		<!-- Versions section -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		
+		<selenium.version>4.3.0</selenium.version>
+		<java.version>1.8</java.version>
+		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+		<testng.version>6.14.2</testng.version>
+		<commons.lang3.version>3.12.0</commons.lang3.version>
+		<log4j.version>1.2.17</log4j.version>
+		<commons-io.version>2.4</commons-io.version>
+		<aspectj.version>1.9.9.1</aspectj.version>
+		
+		<!-- Default parameters for selenium -->
+		<environment.url>https://www.google.com/</environment.url>
+		
+		<!-- Default test suite -->
+		<test.suite>defaultTestSuite.xml</test.suite>
+		
+	</properties>
+
+	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>[${testng.version},)</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>${commons-io.version}</version>
+		</dependency>
+		<dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons.lang3.version}</version>
+        </dependency>
+        <dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>	
+		<!-- https://mvnrepository.com/artifact/org.aspectj/aspectjweaver -->
+		<dependency>
+		    <groupId>org.aspectj</groupId>
+		    <artifactId>aspectjweaver</artifactId>
+		    <version>${aspectj.version}</version>
+		    <scope>runtime</scope>
+		</dependency>
+	</dependencies>
+	
+	<!-- Build phase -->
+	<build>
+		<!-- Filtering resources -->
+		<testResources>
+			<testResource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+
+		<!-- Plugins section -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.19.1</version>
+				<configuration>
+					<suiteXmlFiles>
+						<suiteXmlFile>src/main/resources/suites/${test.suite}</suiteXmlFile>
+					</suiteXmlFiles>
+					<argLine>
+						-javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
+					</argLine>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>${maven-compiler-plugin.version}</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

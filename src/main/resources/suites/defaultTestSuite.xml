@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This test suite contains a list of tests -->
+<suite name="DefaultTestSuite" enabled="true" configfailurepolicy="continue">
+	<test name="DefaultTests" order-by-instances="true">
+		<classes>
+			<class name="com.wizeline.selenium.testSets.DemoTestSet" >
+				<methods>
+                    <include name="searchTest" />
+                    <include name="searchTest2" />
+                </methods>
+            </class>
+		</classes>
+	</test>
+</suite>
