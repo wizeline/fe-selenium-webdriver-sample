@@ -1,4 +1,4 @@
-# Selenium -webdriver project
+# fe-selenium-webdriver-sample project
 
 
 ## Prerequisites
